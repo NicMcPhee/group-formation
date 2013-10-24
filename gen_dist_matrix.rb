@@ -30,8 +30,8 @@ def combine_scores(history, preferences)
   return 3*history + preferences
 end
 
-past_pairs = file.readlines.delete_if { |line| /^#/.match(line) }.map do |line|
 file = File.new("../past_groups.txt")
+past_pairs = file.readlines.delete_if { |line| /^#/.match(line) or line == "\n" }.map do |line|
   line.split(" ")
 end
 
