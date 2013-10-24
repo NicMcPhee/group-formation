@@ -25,7 +25,7 @@ def either_prefers(a, b)
 end
 
 def combine_scores(history, preferences)
-  # The 2*history + preference is pretty arbitrary, but has worked well in
+  # The 3*history + preference is pretty arbitrary, but has worked well in
   # practice.
   return 3*history + preferences
 end
