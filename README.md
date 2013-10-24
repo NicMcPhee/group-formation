@@ -8,9 +8,9 @@ that settable on the command line) that indicates all the prior group relationsh
 This looks like
 ```
 # Name	Name	Lab.number
-Chris	Pat	1
-Ben	Sandy	1
-Sally	Ted	2
+Chris	Pat	    1
+Ben	    Sandy	1
+Sally	Ted	    2
 Jack	Mary    2
 ```
  
