@@ -1,4 +1,4 @@
-group-formation
+Group formation
 ===============
 
 Some (fairly crude) tools to help support the creation of (semi-)random groups.
@@ -12,6 +12,18 @@ There is also support for an optional ```prefs.txt``` file that indicates
 student preferences, which are then added to the distances. (Currently the
 way that these are added is pretty arbitrary and we should see if we can do
 better.)
+
+At the moment this generates a distance matrix that we can drop into R and use
+clustering algorithms there to finish things off. I tend to use hierarchical
+representations (like dendrograms) which I can read groups from fairly well.
+We could, however, increase the automation by implementing something like
+k-means clustering (or a modified version that always generates uniformly
+sized clusters, which we would need here). This would all the Ruby code to
+be self-sufficient and eliminate the dependency on R. Alternatively we could
+use something like [RinRuby](https://sites.google.com/a/ddahl.org/rinruby-users/)
+to at least automate the call out to R so we don't have to do that by hand.
+
+## Past groups
 
 To use these create a ```past_groups.txt``` file (I should make 
 that settable on the command line) that indicates all the prior group relationships.
@@ -35,6 +47,8 @@ Pat     Chris   4
 Pat     Sandy   4
 Chris   Sandy   4
 ```
+
+## Student preferences
 
 Also create a ```prefs.txt``` (also should be settable, and optional) with people's 
 preferences; this can be empty. Then run ```gen_dist_matrix.rb``` to get 
