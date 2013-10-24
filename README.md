@@ -18,7 +18,9 @@ clustering algorithms there to finish things off. I tend to use hierarchical
 representations (like dendrograms) which I can read groups from fairly well.
 We could, however, increase the automation by implementing something like
 k-means clustering (or a modified version that always generates uniformly
-sized clusters, which we would need here). This would all the Ruby code to
+sized clusters, which we would need here). (See 
+["Clustering in Ruby"](http://colinfdrake.com/2011/05/28/clustering-in-ruby.html)
+for some ideas on how we might do this.) This would all the Ruby code to
 be self-sufficient and eliminate the dependency on R. Alternatively we could
 use something like [RinRuby](https://sites.google.com/a/ddahl.org/rinruby-users/)
 to at least automate the call out to R so we don't have to do that by hand.
