@@ -59,4 +59,11 @@ Chris   Sandy   4
 ## Student preferences
 
 Also create a ```prefs.txt``` (also should be settable) with people's 
-preferences; this can be empty or missing altogether.
+preferences; this can be empty or missing altogether. This looks like:
+```
+Chris prefers Sandy Pat
+Chris avoids Jack Sally Ted
+```
+The format is a word (the name of the student whose preferences are being expressed)
+followed by either "prefers" or "avoids" followed by zero or more names of other
+students.
