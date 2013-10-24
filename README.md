@@ -8,14 +8,20 @@ more likely for students to be put in a group together. Some constant _k_ is
 added to the distance between _A_ and _B_ for each time students _A_ and _B_
 have already been in a group together.
 
-There is also support for an optional ```prefs.txt``` file that indicates
-student preferences, which are then added to the distances. (Currently the
-way that these are added is pretty arbitrary and we should see if we can do
-better.)
+There is also support for an optional ```prefs.txt``` file (which can be empty
+or non-existent) that indicates student preferences, which are then added to 
+the distances. (Currently the way that these are added is pretty arbitrary and 
+we should see if we can do better.)
 
-At the moment this generates a distance matrix that we can drop into R and use
-clustering algorithms there to finish things off. I tend to use hierarchical
-representations (like dendrograms) which I can read groups from fairly well.
+The Ruby script ```gen_dist_matrix.rb``` reads these files and generates
+a distance matrix. I then load that in R (```d <- read.table("group_dist.R")```) 
+and use a clustering algorithm like agnes (```ag <- agnes(d, diss=TRUE)```) or 
+fanny (```fa <- fanny(d, k, diss=TRUE)```) to see how people cluster. With 
+the ```diss=TRUE``` argument, individuals in the same cluster (or close to 
+each other in the dendrogram) are good candidates to be in a group together.
+
+At the moment I use R's clustering algorithms and hierarchical representations
+(like dendrograms, which I can read groups from fairly easily) to finish things off.
 We could, however, increase the automation by implementing something like
 k-means clustering (or a modified version that always generates uniformly
 sized clusters, which we would need here). (See 
@@ -53,9 +59,4 @@ Chris   Sandy   4
 ## Student preferences
 
 Also create a ```prefs.txt``` (also should be settable, and optional) with people's 
-preferences; this can be empty. Then run ```gen_dist_matrix.rb``` to get 
-a distance matrix. I then load that in R (```d <- read.table("group_dist.R")```) 
-and use a clustering algorithm like agnes (```ag <- agnes(d, diss=TRUE)```) or 
-fanny (```fa <- fanny(d, k, diss=TRUE)```) to see how people cluster. With 
-the ```diss=TRUE``` argument, individuals in the same cluster (or close to 
-each other in the dendrogram) are good candidates to be in a group together.
+preferences; this can be empty. 
