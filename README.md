@@ -58,5 +58,5 @@ Chris   Sandy   4
 
 ## Student preferences
 
-Also create a ```prefs.txt``` (also should be settable, and optional) with people's 
-preferences; this can be empty. 
+Also create a ```prefs.txt``` (also should be settable) with people's 
+preferences; this can be empty or missing altogether.
