@@ -67,3 +67,13 @@ Chris avoids Jack Sally Ted
 The format is a word (the name of the student whose preferences are being expressed)
 followed by either "prefers" or "avoids" followed by zero or more names of other
 students.
+
+## Distance matrix
+
+The output is a distance matrix formatted for R
+```
+        Chris   Pat Sandy 
+Chris   0       1   3
+Pat     1       0   0
+Sandy   3       0   0
+```
