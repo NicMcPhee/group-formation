@@ -47,13 +47,22 @@ names = name_set.to_a.sort
 
 @prefers = Hash.new([])
 @avoids = Hash.new([])
-pref_lines.each do |line|
-  subject, type = line
-  objects = line[2..-1]
-  if type == "prefers"
-    @prefers[subject] = objects
-  else
-    @avoids[subject] = objects
+if File.exists?("prefs.txt")
+  file = File.new("prefs.txt")
+  pref_lines = file.readlines.delete_if { |line| /^#/.match(line) }.map do |line|
+    line.split(" ")
+  end
+
+  @prefers = Hash.new([])
+  @avoids = Hash.new([])
+  pref_lines.each do |line|
+    subject, type = line
+    objects = line[2..-1]
+    if type == "prefers"
+      @prefers[subject] = objects
+    else
+      @avoids[subject] = objects
+    end
   end
 end
 
