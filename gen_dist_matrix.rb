@@ -45,11 +45,6 @@ past_pairs.each do |a, b, lab|
 end
 names = name_set.to_a.sort
 
-file = File.new("prefs.txt")
-pref_lines = file.readlines.delete_if { |line| /^#/.match(line) }.map do |line|
-  line.split(" ")
-end
-
 @prefers = Hash.new([])
 @avoids = Hash.new([])
 pref_lines.each do |line|
